@@ -22,36 +22,36 @@ export default function WelcomeSection() {
             <p className="mt-6 max-w-md text-base leading-relaxed text-charcoal/70">
               {siteContent.welcome.copy}
             </p>
-            <div className="mt-8 h-px w-24 bg-gold" />
+            <div className="gold-rule mt-8 h-px w-24 bg-gold" />
           </motion.div>
 
           <div className="relative h-[420px] sm:h-[480px]">
             <motion.div
-              className="absolute right-0 top-0 h-64 w-48 overflow-hidden rounded-2xl shadow-xl sm:h-72 sm:w-60"
+              className="group absolute right-0 top-0 h-64 w-48 overflow-hidden rounded-2xl shadow-xl transition-shadow duration-500 hover:shadow-2xl sm:h-72 sm:w-60"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img src={interior2} alt="A warm corner of the Bell Cliff dining room" className="h-full w-full object-cover" loading="lazy" />
+              <img src={interior2} alt="A warm corner of the Bell Cliff dining room" className="image-lift h-full w-full object-cover" loading="lazy" />
             </motion.div>
             <motion.div
-              className="absolute bottom-0 right-20 h-48 w-40 overflow-hidden rounded-2xl border-4 border-cream shadow-xl sm:h-56 sm:w-48"
+              className="group absolute bottom-0 right-20 h-48 w-40 overflow-hidden rounded-2xl border-4 border-cream shadow-xl transition-shadow duration-500 hover:shadow-2xl sm:h-56 sm:w-48"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <img src={afternoonTea} alt="Afternoon tea at Bell Cliff" className="h-full w-full object-cover" loading="lazy" />
+              <img src={afternoonTea} alt="Afternoon tea at Bell Cliff" className="image-lift h-full w-full object-cover" loading="lazy" />
             </motion.div>
             <motion.div
-              className="absolute bottom-8 left-0 h-72 w-72 overflow-hidden rounded-2xl shadow-2xl sm:h-80 sm:w-80"
+              className="group absolute bottom-8 left-0 h-72 w-72 overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:-translate-y-2 sm:h-80 sm:w-80"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <img src={interior1} alt="The Bell Cliff restaurant interior" className="h-full w-full object-cover" loading="lazy" />
+              <img src={interior1} alt="The Bell Cliff restaurant interior" className="image-lift h-full w-full object-cover" loading="lazy" />
             </motion.div>
           </div>
         </div>
