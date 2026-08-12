@@ -23,7 +23,7 @@ export default function GalleryPreview() {
           {images.map((img, i) => (
             <motion.div
               key={img.id}
-              className={`relative overflow-hidden rounded-2xl shadow-md ${
+              className={`group relative overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
                 i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square'
               }`}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -34,9 +34,14 @@ export default function GalleryPreview() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="image-lift h-full w-full object-cover"
                 loading="lazy"
               />
+              <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-navy/75 via-navy/5 to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <span className="translate-y-3 font-serif text-lg text-cream transition-transform duration-500 group-hover:translate-y-0">
+                  {img.alt}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
