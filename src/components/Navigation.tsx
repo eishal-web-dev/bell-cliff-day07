@@ -40,14 +40,14 @@ export default function Navigation() {
       >
         <nav className="container-bell flex h-16 items-center justify-between md:h-20" aria-label="Primary">
           <Link to="/" className="group flex items-center gap-2.5" aria-label="Bell Cliff home">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/60 text-gold transition-colors group-hover:border-gold">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/70 text-gold transition-colors group-hover:border-gold">
               <Anchor className="h-4.5 w-4.5" strokeWidth={1.5} />
             </span>
             <span className="flex flex-col leading-none">
-              <span className="font-serif text-lg font-semibold tracking-wide text-cream">
+              <span className={`font-serif text-lg font-semibold tracking-wide transition-colors ${scrolled || !isHome ? 'text-cream' : 'text-navy'}`}>
                 Bell Cliff
               </span>
-              <span className="text-[0.6rem] uppercase tracking-[0.2em] text-cream/60">
+              <span className={`text-[0.6rem] uppercase tracking-[0.2em] transition-colors ${scrolled || !isHome ? 'text-cream/60' : 'text-navy/55'}`}>
                 Lyme Regis
               </span>
             </span>
@@ -63,7 +63,9 @@ export default function Navigation() {
                     `relative rounded-full px-4 py-2 text-sm font-medium tracking-wide transition-colors ${
                       isActive
                         ? 'text-gold'
-                        : 'text-cream/80 hover:text-cream'
+                        : scrolled || !isHome
+                          ? 'text-cream/80 hover:text-cream'
+                          : 'text-navy/70 hover:text-navy'
                     }`
                   }
                 >
@@ -83,7 +85,7 @@ export default function Navigation() {
             </a>
             <button
               onClick={() => setMobileOpen(true)}
-              className="touch-target flex items-center justify-center rounded-full text-cream lg:hidden"
+              className={`touch-target flex items-center justify-center rounded-full lg:hidden ${scrolled || !isHome ? 'text-cream' : 'text-navy'}`}
               aria-label="Open menu"
               aria-expanded={mobileOpen}
             >
