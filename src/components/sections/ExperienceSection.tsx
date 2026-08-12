@@ -15,8 +15,12 @@ export default function ExperienceSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="overflow-hidden rounded-3xl shadow-2xl">
-              <img src={interior3} alt="The relaxed Bell Cliff dining room" className="h-[500px] w-full object-cover" loading="lazy" />
+            <div className="group relative overflow-hidden rounded-3xl shadow-2xl">
+              <img src={interior3} alt="The relaxed Bell Cliff dining room" className="image-lift h-[500px] w-full object-cover" loading="lazy" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent opacity-60" />
+              <span className="absolute bottom-6 left-6 rounded-full border border-cream/30 bg-navy/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cream backdrop-blur-md">
+                A warm welcome awaits
+              </span>
             </div>
           </motion.div>
 
@@ -41,13 +45,13 @@ export default function ExperienceSection() {
                 return (
                   <motion.div
                     key={point.title}
-                    className="flex gap-4"
+                    className="group flex gap-4 rounded-2xl border border-transparent p-3 transition-all duration-300 hover:translate-x-2 hover:border-gold/25 hover:bg-cream-50 hover:shadow-lg"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.15 }}
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-cream">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-cream transition-all duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-navy">
                       <Icon className="h-5 w-5" strokeWidth={1.5} />
                     </span>
                     <div>
