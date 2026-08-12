@@ -50,16 +50,45 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
 
+  .btn-primary,
+  .btn-gold,
+  .btn-outline {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-medium tracking-wide text-cream transition-all duration-300 hover:bg-navy-600 hover:shadow-lg hover:shadow-navy/20 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-medium tracking-wide text-cream transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-600 hover:shadow-xl hover:shadow-navy/25 active:scale-[0.98];
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium tracking-wide text-navy transition-all duration-300 hover:bg-gold-500 hover:shadow-lg hover:shadow-gold/30 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium tracking-wide text-navy transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-500 hover:shadow-xl hover:shadow-gold/35 active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy/30 bg-transparent px-7 py-3.5 text-sm font-medium tracking-wide text-navy transition-all duration-300 hover:border-navy hover:bg-navy hover:text-cream active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy/30 bg-transparent px-7 py-3.5 text-sm font-medium tracking-wide text-navy transition-all duration-300 hover:-translate-y-0.5 hover:border-navy hover:bg-navy hover:text-cream hover:shadow-lg active:scale-[0.98];
+  }
+
+  .btn-primary::before,
+  .btn-gold::before,
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -80%;
+    left: -35%;
+    width: 24%;
+    height: 260%;
+    transform: rotate(24deg) translateX(-220%);
+    background: rgba(255,255,255,.22);
+    transition: transform .65s cubic-bezier(.22,1,.36,1);
+  }
+
+  .btn-primary:hover::before,
+  .btn-gold:hover::before,
+  .btn-outline:hover::before {
+    transform: rotate(24deg) translateX(720%);
   }
 
   .eyebrow {
@@ -91,9 +120,39 @@
     will-change: transform;
   }
 
+  .card-hover {
+    border: 1px solid rgba(16, 44, 60, 0.08);
+    transform: translateZ(0);
+  }
+
   .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 48px -12px rgba(16, 44, 60, 0.18);
+    transform: translateY(-10px) rotateX(1deg);
+    border-color: rgba(199, 154, 85, 0.45);
+    box-shadow: 0 28px 58px -16px rgba(16, 44, 60, 0.28);
+  }
+
+  .section-heading {
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+
+  .image-lift {
+    transition: transform .8s cubic-bezier(.22,1,.36,1), filter .8s ease;
+  }
+
+  .group:hover .image-lift {
+    transform: scale(1.075);
+    filter: saturate(1.06) contrast(1.03);
+  }
+
+  .gold-rule {
+    transform-origin: left;
+    animation: rule-breathe 3.6s ease-in-out infinite;
+  }
+
+  @keyframes rule-breathe {
+    0%, 100% { transform: scaleX(.62); opacity: .55; }
+    50% { transform: scaleX(1); opacity: 1; }
   }
 }
 
